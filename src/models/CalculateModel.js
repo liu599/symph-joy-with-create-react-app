@@ -1,4 +1,5 @@
 import model from '@symph/joy/model'
+import procude from 'immer';
 
 @model()
 export default class CalculateModel {
@@ -29,7 +30,12 @@ export default class CalculateModel {
     }
 
     async addDeep() {
-        console.log(this);
+        let oriState = this.getState();
+        this.setState(
+            procude(oriState, draft => {
+                draft.a.b.c.count += 1
+            })
+        )
     }
 
 }

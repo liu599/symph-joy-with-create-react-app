@@ -19,7 +19,7 @@ const app = create({
 
 // 启动框架
 app.start();
-app.use(Immer);
+// app.use(Immer);
 
 class App extends Component {
   render() {
